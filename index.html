@@ -8,11 +8,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="pregunta" class="pregunta"></div><br>
-    <button onClick="continuar(preguntaActualIndex)">Siguiente</button>
-    <p>Respuesta correcta: <span class="rightContador"></span></p>
-    <p>Respuesta incorrecta: <span class="wrongContador"></span></p>
-
+	<button id="start" onClick="start()">Iniciar Juego</button>
+	<div id="everything" class="everything">
+		<div id="question"></div><br>
+	    <button onClick="printHtmlQuestion(currentQuestionIndex)">Siguiente</button>
+	    <p>Respuesta correcta: 
+	    	<span class="rightCounter">0</span>
+	    </p>
+	    <p>Respuesta incorrecta: 
+	    	<span class="wrongCounter">0</span>
+	    </p>
+	    <span id ="time">5</span>
+	</div>
+    
     <script src="script.js"></script>
 </body>
 </html>
