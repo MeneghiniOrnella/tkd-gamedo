@@ -1,6 +1,14 @@
-.rightContador{
+.right{
     background-color:rgb(139, 223, 55);
 }
-.wrongContador{
+.wrong{
     background-color:rgb(223, 55, 55);
+}
+
+/*img{
+	height: 20em
+}*/
+
+.everything{
+	display: none;
 }
