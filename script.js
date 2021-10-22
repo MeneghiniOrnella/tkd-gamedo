@@ -94,8 +94,7 @@ let printHtmlQuestion = (i) => {
 
     const htmlAnswersArray = a.map(currentA => 
         `<p class="answer">
-            <button onClick="evaluateAnswer('${currentA}')"><i class="fas fa-circle"></i></button>
-            <span>${currentA}</span>
+            <button class="answersBtn" onClick="evaluateAnswer('${currentA}')">${currentA}</button>
         </p>`
     );
     const htmlAnswers = htmlAnswersArray.join(' ');
