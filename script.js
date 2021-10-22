@@ -15,15 +15,15 @@ const cuestionary = [
         // 'img': './media/tkd.png',
         // Audio:
         // 'audio': './media/tkd.mp3',
-        'answers': ['Corea','China','Japón','Argentina'],
+        'answers': ['Corea','China','Japón','Argentina']
     },
     {
         'question': 'Cuándo se creó el taekwondo?',
-        'answers': ['1955','1945','1965','1966'],
+        'answers': ['1955','1945','1965','1966']
     },
     {
         'question': 'Cuando se creó la Escuela Dung San?',
-        'answers': ['2010','2006','2008','2012'],
+        'answers': ['2010','2006','2008','2012']
     },
     {
         'question': 'Dónde se creó el estilo de taekwondo ITF?',
@@ -76,7 +76,7 @@ const cuestionary = [
     {
         'question': 'Qué significa dojang?',
         'answers': ['Habitación','Lugar de práctica','Escuela','Escudo']
-    },
+    }
 ];
 
 let printHtmlQuestion = (i) => {
@@ -127,18 +127,14 @@ let printHtmlQuestion = (i) => {
         if(answer == rightAnswer){
             parentP.classList.add('right');
             rightAnswers++;
-            document.querySelector('.right').innerHTML = rightAnswers;
+            document.querySelector('.rightCounter').innerHTML = rightAnswers;
         }else{
             parentP.classList.add('wrong');
             wrongAnswers++;
-            document.querySelector('.wrong').innerHTML = wrongAnswers;
+            document.querySelector('.wrongCounter').innerHTML = wrongAnswers;
         };
     };
 };
- 
-/* function next(){
-    document.querySelector('.everything').style.display = 'block';
-}; */
 
 function start(){
     printHtmlQuestion[0];
