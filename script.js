@@ -76,39 +76,39 @@ const cuestionary = [
     {
         'question': 'Qué significa dojang?',
         'answers': ['Habitación','Lugar de práctica','Escuela','Escudo']
-    }
+    },
 ];
 
 let printHtmlQuestion = (i) => {
-    preguntaActualIndex++;
-    const q = cuestionario[i];
-    let a = q.respuestas;
-    rtaCorrecta = a[0];
+    currentQuestionIndex++;
+    const q = cuestionary[i];
+    let a = q.answers;
+    rightAnswers = a[0];
     
     // Metodo random:
-    a = a.sort((a,b) => Math.floor(Math.random()*3)-1);
+    a = a.sort((a,b) => Math.floor(Math.random()*2)-1);
 
-    // Audio:
-    /*let audio = new Audio('q.audio');
+    /*Audio:
+    let audio = new Audio('q.audio');
     audio.play();*/
 
     const htmlAnswersArray = a.map(currentA => 
         `<p class="answer">
-            <button onclick="corregir('${currentA}')",this>X</button>
+            <button onClick="evaluateAnswer('${currentA}')"><i class="fas fa-circle"></i></button>
             <span>${currentA}</span>
         </p>`
     );
+    const htmlAnswers = htmlAnswersArray.join(' ');
 
-    const htmlAnswers = htmlAnsweraArray.join(' ');
-    // Imagenes:
-    //let htmlCuestionarioCode = `<p class="respuestas">${q.pregunta}</p><img src="${q.img}"><div>${htmlRespuestas}</div>`;
-        let htmlQuestionCode = 
-            `<p>${q.question}</p>
-            <div>${htmlAnswers}</div>`;
-        document.querySelector('.question').innerHTML = htmlQuestionCode;
+    /*Imagenes:
+    let htmlCuestionarioCode = `<p class="respuestas">${q.pregunta}</p><img src="${q.img}"><div>${htmlRespuestas}</div>`;*/
+    let htmlQuestionCode = 
+        `<p>${q.question}</p>
+        <div>${htmlAnswers}</div>`;
+    document.querySelector('.question').innerHTML = htmlQuestionCode;
 
     // Tiempo limite:
-    time = 10;
+    /* time = 10;
     document.querySelector('.time').innerHTML = time; 
     clearInterval(timeInterval);
     timeInterval = setInterval(() => {
@@ -119,28 +119,29 @@ let printHtmlQuestion = (i) => {
         }else{
            document.querySelector('.time').innerHTML = time; 
         }
-    },100000);
+    },10000); */
 
-    const corregir = (respuestas, obj) =>{
-        document.querySelectorAll('.respuestas').forEach(a => a.classList.remove('right','wrong'));
-        const parenP = obj.parentNode;
+    const evaluateAnswer = (answer, obj) =>{
+        document.querySelectorAll('.answer').forEach(a => a.classList.remove('right','wrong'));
+        const parentP = obj.parentNode;
         if(answer == rightAnswer){
-            parenP.classList.add('right');
-            rightAnswer++;
-            document.querySelector('.rightCounter').innerHTML = rightCounter;
+            parentP.classList.add('right');
+            rightAnswers++;
+            document.querySelector('.right').innerHTML = rightAnswers;
         }else{
-            parenP.classList.add('wrong');
+            parentP.classList.add('wrong');
             wrongAnswers++;
-            document.querySelector('.wrongCounter').innerHTML = wrongAnswers;
-    }
+            document.querySelector('.wrong').innerHTML = wrongAnswers;
+        };
+    };
 };
+ 
+/* function next(){
+    document.querySelector('.everything').style.display = 'block';
+}; */
 
-const nextQuestion = _ => {
-
-}
-
-const start = _ =>{
-    printHtmlQuestion(0);
-    documet.getElementById('.start').style.display = 'none';
-    documet.getElementById('.everything').style.display = 'block';
+function start(){
+    printHtmlQuestion[0];
+    document.querySelector('.startBtn').style.display = 'none';
+    document.querySelector('.everything').style.display = 'block';
 };
