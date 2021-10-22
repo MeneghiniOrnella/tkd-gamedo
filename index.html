@@ -5,20 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<button id="start" onClick="start()">Iniciar Juego</button>
+    <div class="home">
+        <img src="img\dung-san.png" alt="escuela dung san taekwondo itf" height="200em"><br>
+	    <button id="startBtn" onClick="start()" class="startBtn">Iniciar</button>
+    </div>
+    
 	<div id="everything" class="everything">
-		<div id="question"></div><br>
-	    <button onClick="printHtmlQuestion(currentQuestionIndex)">Siguiente</button>
-	    <p>Respuesta correcta: 
-	    	<span class="rightCounter">0</span>
-	    </p>
-	    <p>Respuesta incorrecta: 
-	    	<span class="wrongCounter">0</span>
-	    </p>
-	    <span id ="time">5</span>
+		<div id="question" class="question"></div><br>
+	    <button onClick="next()">Siguiente</button>
+        <div class="info">
+            <p class="ticktack">
+                <i class="fas fa-stopwatch"></i>
+                <span id ="time">5</span>
+            </p>
+            <p class="right">
+                <i class="fas fa-check-circle"></i>
+                <span class="rightCounter">0</span>
+            </p>
+            <p class="wrong">
+                <i class="fas fa-times-circle"></i>
+                <span class="wrongCounter">0</span>
+            </p>
+        </div>
 	</div>
     
     <script src="script.js"></script>
