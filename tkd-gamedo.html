@@ -106,10 +106,15 @@
 
         .finishText{
             width: 100%;
-            background: black;
-            color: white;
+            color: rgb(7, 7, 7);
+            font-size: large;
             text-align: center;
             justify-items: center;
+            background-color: rgb(157, 230, 230);
+        }
+        .finish{
+            font: solid xx-large;
+            color:rgb(12, 12, 122);
         }
 
         @media only screen and (max-width: 600px)  {
@@ -139,6 +144,12 @@
                 padding-top: 0.7em;
                 padding-bottom: 0.7em;
             }
+            img{
+                margin-top: 0.5em;
+                width: 8em;
+                height: 8em;
+                text-align: center;
+            }
         }
         @media only screen and (min-width: 801px) {
             body{
@@ -148,13 +159,19 @@
                 padding-top: 1em;
                 padding-bottom: 1em;
             }
+            img{
+                margin-top: 2.5em;
+                width: 12em;
+                height: 12em;
+                text-align: center;
+            }
         }
     </style>
 
 </head>
 <body>
     <div class="home">
-        <img src="img\dung-san.png" alt="escuela dung san taekwondo itf" height="200em"><br>
+        <img src="https://drive.google.com/file/d/14iwCqYlQnaD7isuSMLGdKbI10i940un4/view?usp=sharing" alt="escuela dung san taekwondo itf" height="200em"><br>
 		<h1 class="title">Juego de preguntas</h1>
 	    <button id="startBtn" onClick="start()" class="startBtn">Iniciar</button>
     </div>
@@ -329,7 +346,7 @@
 
             const numberLong = cuestionary.length;
             const total = parseInt(rightAnswers + wrongAnswers);
-            if(total == 15){
+            if(total == 20){
                 document.querySelector('.finishText').innerHTML= `
                     <p class="finish">Fin!</p><br>
                     <p>Juega de nuevo o comparte tus resultados con tus compañeros.</p><br>
