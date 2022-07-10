@@ -1,0 +1,96 @@
+:root{
+    --bg: #00ccff;
+    font-size: 10px;
+}
+
+body{
+    background-color: var(--bg);
+    font-family: 'Roboto Slab', serif;
+}  
+
+.home{
+    padding: auto;
+    margin: 0 20em;
+    color:rgb(10, 10, 71);
+    text-align: center;
+    justify-content: center;
+}
+img{
+    background: white;
+    border-radius: 100%;
+}
+
+p{
+    text-align: center;
+    width: 100%;
+    font-size: x-large;
+    border: none;
+    border-radius: 0.3rem;
+}
+
+button{
+    background: rgb(0, 133, 156);
+    width: 100%;
+    padding-top: 0.3em;
+    padding-bottom: 0.5em;
+    font-size: xx-large;
+    border: none;
+    border-radius: 2%;
+}
+
+a{
+    display: block;
+    cursor: pointer;
+    border-radius: 0.3rem;
+}
+
+.everything{
+    display: none;
+    padding: 0;
+    margin: 0 20%;
+}
+.questionText{
+    text-decoration: solid;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.842);
+    padding: 2rem 1.5rem;
+}
+.answersBtn{
+    font-size: large;
+    --bg: rgb(0, 0, 0);
+}
+.info{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    font-size: large;
+    background: rgba(255, 255, 255, 0.397);
+}
+.right{
+    color: white;
+    background-color: rgb(9, 148, 9);
+}
+.wrong{
+    color: white;
+    background-color: rgb(172, 16, 47);
+}
+.info .right{
+    color: rgb(9, 148, 9);
+    background: rgba(255, 255, 255, 0);
+}
+.info .wrong{
+    color: rgb(172, 16, 47);
+    background: rgba(255, 255, 255, 0);
+}
+.ticktack{
+    color:rgb(12, 12, 122);
+    display: unset;
+}
+
+.end{
+    background: #00ccff;
+    text-align: center;
+}
+.finish{
+    font-size: xx-large;
+}
