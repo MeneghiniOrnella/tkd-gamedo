@@ -7,8 +7,6 @@ let wrongAnswers = 0;
 let timeInterval;
 let time = 10;
 
-let level;
-
 const cuestionary = [
     {
         'question': 'Dónde se creó el taekwondo?',
@@ -131,8 +129,6 @@ const printHtmlQuestion = (i) => {
 
 const evaluateAnswer = (answer,obj) => {
     document.querySelectorAll('.answer').forEach(a => a.classList.remove('right','wrong'));
-    /* alert(answer); */
-    // console.log('answer: '+answer+', rightAnswer: '+rightAnswer);
     if (answer == rightAnswer) {
         obj.parentNode.classList.add('right');
         rightAnswers++;
@@ -143,7 +139,6 @@ const evaluateAnswer = (answer,obj) => {
         document.querySelector(".wrongCounter").innerHTML = wrongAnswers;
     }
 
-    const numberLong = cuestionary.length;
     const total = parseInt(rightAnswers + wrongAnswers);
     if(total == 20) {
         document.querySelector('.finishText').innerHTML= `
@@ -160,7 +155,7 @@ const evaluateAnswer = (answer,obj) => {
 
 // Color Random:
 const nextBtn = document.getElementById("nextBtn");
-const body = document.querySelector("body");
+const body    = document.querySelector("body");
 const generateRandomColor = () => {
     let r = Math.floor(Math.random()*256);
     let g = Math.floor(Math.random()*256);
@@ -180,8 +175,8 @@ const next = _ => {
 
 function start() {
     printHtmlQuestion(0);
-    document.querySelector('.startBtn').style.display = 'none';
-    document.querySelector('.title').style.display = 'none';
+    document.querySelector('.startBtn')  .style.display = 'none';
+    document.querySelector('.title')     .style.display = 'none';
     document.querySelector('.everything').style.display = 'block';
     document.querySelector('.finishText').style.display = 'none';
 };
