@@ -7,12 +7,12 @@ let wrongAnswers = 0;
 let timeInterval;
 let time = 10;
 
+let level;
+
 const cuestionary = [
     {
         'question': 'Dónde se creó el taekwondo?',
-        // Imagenes:
         // 'img': './media/tkd.png',
-        // Audio:
         // 'audio': './media/tkd.mp3',
         'answers': ['Corea','China','Japón','Argentina']
     },
@@ -95,20 +95,20 @@ const cuestionary = [
     {
         'question': 'Cúal es la distribución del peso de la posición en L?',
         'answers': ['70%-30%','90%-10%','50%-50%','80%-20%']
-    },
-];
+    }
+]
 
 const printHtmlQuestion = (i) => {
     currentQuestionIndex++;
-    const q =cuestionary[i];
-    let a = q.answers;
+    const q = cuestionary[i];
+    let   a = q.answers;
     rightAnswer = a[0];
 
     // Metodo random:
     a = a.sort((a,b) => Math.floor(Math.random()*3)-1);
 
     // Tiempo limite:
-    timeInterval = setInterval( () => {
+    timeInterval = setInterval(() => {
         time--;
         if(time === 0) {
             // alert('Es momento de pasar a la siguiente pregunta');
@@ -132,14 +132,13 @@ const printHtmlQuestion = (i) => {
 const evaluateAnswer = (answer,obj) => {
     document.querySelectorAll('.answer').forEach(a => a.classList.remove('right','wrong'));
     /* alert(answer); */
-    const parentP = obj.parentNode;
     // console.log('answer: '+answer+', rightAnswer: '+rightAnswer);
     if (answer == rightAnswer) {
-        parentP.classList.add('right');
+        obj.parentNode.classList.add('right');
         rightAnswers++;
         document.querySelector(".rightCounter").innerHTML = rightAnswers;
     } else {
-        parentP.classList.add('wrong');
+        obj.parentNode.classList.add('wrong');
         wrongAnswers++;
         document.querySelector(".wrongCounter").innerHTML = wrongAnswers;
     }
@@ -150,11 +149,12 @@ const evaluateAnswer = (answer,obj) => {
         document.querySelector('.finishText').innerHTML= `
             <p class="finish">Fin!</p><br>
             <p>Juega de nuevo o comparte tus resultados con tus compañeros.</p><br>
-            <button id="startBtn" onClick="start()" class="startBtn"><i class="fas fa-undo-alt"></i></button>`;
+            <button id="startBtn" onClick="start()" class="startBtn"><i class="fas fa-undo-alt"></i></button>
+        `;
         document.querySelector('.finishText').style.display = 'block';
         document.querySelector('.everything').style.display = 'none';
     } else {
-        let uno = console.log('Respuestas correctas: '+rightAnswers+'/'+total);
+        console.log('Respuestas correctas: ' + rightAnswers+ '/' + total);
     }
 };
 
@@ -162,19 +162,17 @@ const evaluateAnswer = (answer,obj) => {
 const nextBtn = document.getElementById("nextBtn");
 const body = document.querySelector("body");
 const generateRandomColor = () => {
-    let color = Math.floor(Math.random()*256);
-    const r = color;
-    const g = color;
-    const b = color;
-    return `rgb(${r},${g},${b})`;
-     
+    let r = Math.floor(Math.random()*256);
+    let g = Math.floor(Math.random()*256);
+    let b = Math.floor(Math.random()*256);
+    return `rgb(${ r },${ g },${ b })`;
 };
-const setBackgrount = () => {
+const setBackground = () => {
     const newColor = generateRandomColor();
     console.log(newColor);
     body.style.backgroundColor = newColor;
 };
-nextBtn.addEventListener("click", setBackgrount);
+nextBtn.addEventListener("click", setBackground);
 
 const next = _ => {
     printHtmlQuestion(currentQuestionIndex);
@@ -187,6 +185,3 @@ function start() {
     document.querySelector('.everything').style.display = 'block';
     document.querySelector('.finishText').style.display = 'none';
 };
-
-const creado = 'Página creada por Saboon Ornella Meneghini 1º dan';
-// const made = console.log(creado);
