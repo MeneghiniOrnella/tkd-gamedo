@@ -109,7 +109,6 @@ const printHtmlQuestion = (i) => {
     timeInterval = setInterval(() => {
         time--;
         if(time === 0) {
-            // alert('Es momento de pasar a la siguiente pregunta');
             clearInterval(timeInterval);
             next();
             time = 10;
@@ -118,11 +117,17 @@ const printHtmlQuestion = (i) => {
         }
     },5000);
     
-    const htmlAnswersArray = a.map(currentA => 
-    `<p class="answersBtn"><a class="answer" onClick="evaluateAnswer('${currentA}',this)">${currentA}</a></p>`);
+    const htmlAnswersArray = a.map(currentA => `
+        <p class="answersBtn">
+            <a class="answer" onClick="evaluateAnswer('${currentA}',this)">${currentA}</a>
+        </p>
+    `);
     const htmlAnswers = htmlAnswersArray.join('');
 
-        let htmlQuestionCode = `<p class="questionText">${q.question}</p><div>${htmlAnswers}</div>`;
+        let htmlQuestionCode = `
+            <p class="questionText">${q.question}</p>
+            <div>${htmlAnswers}</div>
+        `;
 
     document.querySelector('.question').innerHTML = htmlQuestionCode
 };
@@ -144,7 +149,7 @@ const evaluateAnswer = (answer,obj) => {
         document.querySelector('.finishText').innerHTML= `
             <p class="finish">Fin!</p><br>
             <p>Juega de nuevo o comparte tus resultados con tus compañeros.</p><br>
-            <button id="startBtn" onClick="start()" class="startBtn"><i class="fas fa-undo-alt"></i></button>
+            <button id="startBtn" class="startBtn" onClick="start()"><i class="fas fa-undo-alt"></i></button>
         `;
         document.querySelector('.finishText').style.display = 'block';
         document.querySelector('.everything').style.display = 'none';
@@ -155,12 +160,12 @@ const evaluateAnswer = (answer,obj) => {
 
 // Color Random:
 const nextBtn = document.getElementById("nextBtn");
-const body    = document.querySelector("body");
+const body    = document.querySelector ("body");
 const generateRandomColor = () => {
     let r = Math.floor(Math.random()*256);
     let g = Math.floor(Math.random()*256);
     let b = Math.floor(Math.random()*256);
-    return `rgb(${ r },${ g },${ b })`;
+    return `rgb(${ r }, ${ g }, ${ b })`;
 };
 const setBackground = () => {
     const newColor = generateRandomColor();

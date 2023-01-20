@@ -1,84 +1,88 @@
-:root{
-    --background: #00ccff;
+:root {
+    --background: #75d3eb;
     --background-dark: rgba(123, 121, 121, 0.489); 
     font-size: 10px;
 }
 
-body{
+body {
     background-color: var(--background);
     font-family: 'Roboto Slab', serif;
     text-align: center;
     justify-content: center;
-}  
+    padding: 3em;
+}
 
-h1{
+h1 {
     font-size: 4.5em;
 }
 
-.home{
-    color:rgb(10, 10, 71);
-    text-align: center;
-    justify-content: center;
-    width: 100%;
-}
-img{
-    background: white;
+img {
+    background: #fff;
     border-radius: 100%;
 }
 
-p{
+p {
     text-align: center;
     width: 100%;
-    font-size: x-large;
+    font-size: 2.2em;
     border: none;
     border-radius: 0.3rem;
     width: 100%;
 }
 
-button{
-    background: rgb(0, 133, 156);
+button {
+    background: rgb(42, 39, 206);
+    color: #fff;
     width: 100%;
-    font-size: xx-large;
+    font-size: 2.8em;
+    text-transform: uppercase;
     border: none;
-    border-radius: 2%;
+    border-radius: 12px 12px 0 0;
+    padding: 0.4em;
     cursor: pointer;
 }
+.startBtn {
+    border-radius: 12px;
+}
 
-a{
+a {
     display: block;
     cursor: pointer;
-    border-radius: 0.3rem;
     width: 100%;
 }
 
-.everything{
+footer a {
+    font-size: 1.5rem;
+    margin-top: 1.5em;
+}
+
+.everything {
     display: none;
     width: 100%;
 }
-.questionText{
+.questionText {
     text-decoration: solid;
     text-transform: uppercase;
     background: rgba(255, 255, 255, 0.842);
     width: 100%;
 }
-.answersBtn{
+.answersBtn {
     font-size: large;
     background: #000;
     color: #fff;
     width: 100%;
 }
-.info{
+.info {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
-    font-size: large;
+    font-size: 0.8em;
     background: #000;
     width: 100%;
-
     color: white;
+    border-radius: 0 0 12px 12px;
 }
-
-.finishText{
+.finishText {
     width: 100%;
     color: rgb(7, 7, 7);
     font-size: large;
@@ -86,28 +90,23 @@ a{
     justify-items: center;
     background-color: rgb(227, 246, 246);
 }
-.finish{
+.finish {
     font: solid xx-large;
     color:rgb(13, 13, 203);
-}
-
-footer a {
-    font-size: 1.5rem;
 }
 
 .right {
     background-color: rgb(0, 185, 86);
 }
-
 .wrong {
     background-color: rgb(185, 25, 0);
 }
 
-@media only screen and (max-width: 600px)  {
-    body{
+@media only screen and (max-width: 600px) {
+    body {
         margin: 0;
     }
-    img{
+    img {
         margin-top: 2.5em;
         width: 12em;
         height: 12em;
@@ -117,35 +116,37 @@ footer a {
         padding-bottom: 0.5em;
     }
 }
+
 @media only screen and (min-width: 601px) and (max-width: 800px) {
-    body{
+    body {
         margin: 1em 3em;
     }
-    img{
+    img {
         margin-top: 4em;
         width: 15em;
         height: 15em;
     }
-    .questionText,.answersBtn{
+    .questionText,.answersBtn {
         padding-top: 0.7em;
         padding-bottom: 0.7em;
     }
-    img{
+    img {
         margin-top: 0.5em;
         width: 8em;
         height: 8em;
         text-align: center;
     }
 }
+
 @media only screen and (min-width: 801px) {
-    body{
+    body {
         margin:10% 20%;
     }
-    .questionText,.answersBtn{
+    .questionText,.answersBtn {
         padding-top: 1em;
         padding-bottom: 1em;
     }
-    img{
+    img {
         margin-top: 2.5em;
         width: 12em;
         height: 12em;
