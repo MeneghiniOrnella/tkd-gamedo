@@ -110,12 +110,12 @@ const printHtmlQuestion = (i) => {
     // Tiempo limite:
     timeInterval = setInterval( () => {
         time--;
-        if(time == 0){
+        if(time === 0) {
             // alert('Es momento de pasar a la siguiente pregunta');
             clearInterval(timeInterval);
             next();
             time = 10;
-        }else{
+        } else {
             document.querySelector('.time').innerHTML = time;
         }
     },5000);
@@ -129,16 +129,16 @@ const printHtmlQuestion = (i) => {
     document.querySelector('.question').innerHTML = htmlQuestionCode
 };
 
-const evaluateAnswer = (answer,obj) =>{
+const evaluateAnswer = (answer,obj) => {
     document.querySelectorAll('.answer').forEach(a => a.classList.remove('right','wrong'));
     /* alert(answer); */
     const parentP = obj.parentNode;
-    console.log('answer: '+answer+', rightAnswer: '+rightAnswer);
-    if (answer == rightAnswer){
+    // console.log('answer: '+answer+', rightAnswer: '+rightAnswer);
+    if (answer == rightAnswer) {
         parentP.classList.add('right');
         rightAnswers++;
         document.querySelector(".rightCounter").innerHTML = rightAnswers;
-    } else{
+    } else {
         parentP.classList.add('wrong');
         wrongAnswers++;
         document.querySelector(".wrongCounter").innerHTML = wrongAnswers;
@@ -146,14 +146,14 @@ const evaluateAnswer = (answer,obj) =>{
 
     const numberLong = cuestionary.length;
     const total = parseInt(rightAnswers + wrongAnswers);
-    if(total == 20){
+    if(total == 20) {
         document.querySelector('.finishText').innerHTML= `
             <p class="finish">Fin!</p><br>
             <p>Juega de nuevo o comparte tus resultados con tus compañeros.</p><br>
             <button id="startBtn" onClick="start()" class="startBtn"><i class="fas fa-undo-alt"></i></button>`;
         document.querySelector('.finishText').style.display = 'block';
         document.querySelector('.everything').style.display = 'none';
-    } else{
+    } else {
         let uno = console.log('Respuestas correctas: '+rightAnswers+'/'+total);
     }
 };
@@ -162,11 +162,12 @@ const evaluateAnswer = (answer,obj) =>{
 const nextBtn = document.getElementById("nextBtn");
 const body = document.querySelector("body");
 const generateRandomColor = () => {
-    const r = Math.floor(Math.random()*256);
-    const g = Math.floor(Math.random()*256);
-    const b = Math.floor(Math.random()*256);
-    const rbgColor = `rgb(${r},${g},${b})`;
-    return rbgColor;
+    let color = Math.floor(Math.random()*256);
+    const r = color;
+    const g = color;
+    const b = color;
+    return `rgb(${r},${g},${b})`;
+     
 };
 const setBackgrount = () => {
     const newColor = generateRandomColor();
@@ -179,7 +180,7 @@ const next = _ => {
     printHtmlQuestion(currentQuestionIndex);
 };
 
-function start(){
+function start() {
     printHtmlQuestion(0);
     document.querySelector('.startBtn').style.display = 'none';
     document.querySelector('.title').style.display = 'none';
@@ -188,4 +189,4 @@ function start(){
 };
 
 const creado = 'Página creada por Saboon Ornella Meneghini 1º dan';
-const made = console.log(creado);
+// const made = console.log(creado);
