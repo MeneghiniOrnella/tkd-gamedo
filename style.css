@@ -1,5 +1,5 @@
 :root {
-    --background: #75d3eb;
+    --background: #33b0cf;
     --background-dark: rgba(123, 121, 121, 0.489); 
     font-size: 10px;
 }
@@ -109,6 +109,10 @@ footer a {
     background-color: rgb(185, 25, 0);
 }
 
+.btns {
+    display: inline-flex;
+}
+
 @media only screen and (max-width: 600px) {
     body {
         margin: 0;
@@ -159,8 +163,4 @@ footer a {
         height: 12em;
         text-align: center;
     }
-}
-
-.btns {
-    display: inline-flex;
 }
