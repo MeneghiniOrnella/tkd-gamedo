@@ -160,3 +160,7 @@ footer a {
         text-align: center;
     }
 }
+
+.btns {
+    display: inline-flex;
+}

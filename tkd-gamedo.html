@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tkd-gamedo</title>
 
-    <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" rel="stylesheet" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet"> 
@@ -21,7 +20,13 @@
     
     <div class="everything">
         <div class="question"></div>
-        <button id="nextBtn" class="nextBtn" onClick="next()">Siguiente</button>
+        <div class="btns">
+            <button id="nextBtn" class="nextBtn" onClick="next()">Siguiente</button>
+            <button id="resetBtn">
+                <i class="fa-solid fa-rotate-right"></i>
+            </button>
+        </div>
+        
         <div class="info">
             <p>
                 <i class="fas fa-stopwatch"></i>
@@ -42,9 +47,10 @@
 
     <br>
     <footer>
-        <a href="https://meneghiniornella.netlify.app/" target="_blank">Página creada por Saboon Ornella Meneghini 1º dan</a>
+        <a href="https://meneghiniornella.netlify.app/" target="_blank">Página creada por Saboon Ornella Meneghini 1º dan &copy2023</a>
     </footer>
 
+    <script src="https://kit.fontawesome.com/093473ac19.js" crossorigin="anonymous"></script>
     <script src="app.js"></script>
 </body>
 </html>

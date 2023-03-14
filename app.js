@@ -129,7 +129,7 @@ const printHtmlQuestion = (i) => {
             <div>${htmlAnswers}</div>
         `;
 
-    document.querySelector('.question').innerHTML = htmlQuestionCode
+    document.querySelector('.question').innerHTML = htmlQuestionCode;
 };
 
 const evaluateAnswer = (answer,obj) => {
@@ -154,7 +154,7 @@ const evaluateAnswer = (answer,obj) => {
         document.querySelector('.finishText').style.display = 'block';
         document.querySelector('.everything').style.display = 'none';
     } else {
-        console.log('Respuestas correctas: ' + rightAnswers+ '/' + total);
+        console.log('Respuestas correctas: ' + rightAnswers + '/' + total);
     }
 };
 
@@ -169,19 +169,24 @@ const generateRandomColor = () => {
 };
 const setBackground = () => {
     const newColor = generateRandomColor();
-    console.log(newColor);
+    console.table(newColor);
     body.style.backgroundColor = newColor;
 };
 nextBtn.addEventListener("click", setBackground);
 
-const next = _ => {
+const next = () => {
     printHtmlQuestion(currentQuestionIndex);
 };
 
-function start() {
+const start = () => {
     printHtmlQuestion(0);
     document.querySelector('.startBtn')  .style.display = 'none';
     document.querySelector('.title')     .style.display = 'none';
     document.querySelector('.everything').style.display = 'block';
     document.querySelector('.finishText').style.display = 'none';
 };
+
+const resetBtn = document.getElementById("resetBtn");
+resetBtn.addEventListener("click", () => {
+    window.location.reload();
+})
