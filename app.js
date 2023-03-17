@@ -93,6 +93,46 @@ const cuestionary = [
     {
         'question': 'Cúal es la distribución del peso de la posición en L?',
         'answers': ['70%-30%','90%-10%','50%-50%','80%-20%']
+    },
+    {
+        'question': 'Cómo se dice rodilla en coreano?',
+        'answers': ['morup','chagui','palkup','tae']
+    },
+    {
+        'question': 'Cómo se dice profesor en coreano?',
+        'answers': ['sabonim','sabom','bu sabonim','tae']
+    },
+    {
+        'question': 'Qué significa maki?',
+        'answers': ['defensa','ataque','giro','guardia']
+    },
+    {
+        'question': 'Cómo se dice posición en coreano?',
+        'answers': ['sogui','niunja','annun','debi']
+    },
+    {
+        'question': 'Cómo se dice 10 en coreano?',
+        'answers': ['yol','hana','dul','net']
+    },
+    {
+        'question': 'Cómo se dice 3 en coreano?',
+        'answers': ['set','dasot','ilgob','ahob']
+    },
+    {
+        'question': 'Qué significa hong?',
+        'answers': ['rojo','competidor','referi','azul']
+    },
+    {
+        'question': 'Cómo se dice azul en coreano?',
+        'answers': ['chong','rojo','competidor','referi']
+    },
+    {
+        'question': 'Cómo se dice mano en coreano?',
+        'answers': ['son','palmok','sonnal','chumok']
+    },
+    {
+        'question': 'Cómo se dice patada en coreano?',
+        'answers': ['chagui','sogui','chirigui','tae']
     }
 ]
 
