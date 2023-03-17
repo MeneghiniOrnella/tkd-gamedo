@@ -3,7 +3,7 @@ let currentQuestionIndex = 0;
 let rightAnswers = 0;
 let wrongAnswers = 0;
 
-// Tiempo limite;
+// Tiempo limite:
 let timeInterval;
 let time = 10;
 
@@ -103,19 +103,19 @@ const printHtmlQuestion = (i) => {
     rightAnswer = a[0];
 
     // Metodo random:
-    a = a.sort((a,b) => Math.floor(Math.random()*3)-1);
+    a = a.sort((a, b) => Math.floor(Math.random() * 3) - 1);
 
     // Tiempo limite:
-    timeInterval = setInterval(() => {
-        time--;
-        if(time === 0) {
-            clearInterval(timeInterval);
-            next();
-            time = 10;
-        } else {
-            document.querySelector('.time').innerHTML = time;
-        }
-    },5000);
+    // timeInterval = setInterval(() => {
+    //     time--;
+    //     if(time === 0) {
+    //         clearInterval(timeInterval);
+    //         next();
+    //         time = 10;
+    //     } else {
+    //         document.querySelector('.time').innerHTML = time;
+    //     }
+    // },5000);
     
     const htmlAnswersArray = a.map(currentA => `
         <p class="answersBtn">
@@ -132,7 +132,7 @@ const printHtmlQuestion = (i) => {
     document.querySelector('.question').innerHTML = htmlQuestionCode;
 };
 
-const evaluateAnswer = (answer,obj) => {
+const evaluateAnswer = (answer, obj) => {
     document.querySelectorAll('.answer').forEach(a => a.classList.remove('right','wrong'));
     if (answer == rightAnswer) {
         obj.parentNode.classList.add('right');
@@ -144,14 +144,15 @@ const evaluateAnswer = (answer,obj) => {
         document.querySelector(".wrongCounter").innerHTML = wrongAnswers;
     }
 
-    const total = parseInt(rightAnswers + wrongAnswers);
-    if(total == 20) {
-        document.querySelector('.finishText').innerHTML= `
+    const totalAnswers = parseInt(rightAnswers + wrongAnswers);
+    if(totalAnswers == 2) {
+        document.querySelector('#finishText').innerHTML= `
             <p class="finish">Fin!</p><br>
             <p>Juega de nuevo o comparte tus resultados con tus compañeros.</p><br>
+            <p>Respuestas correctas: ${ rightAnswers }/${ totalAnswers }</p>
             <button id="startBtn" class="startBtn" onClick="start()"><i class="fas fa-undo-alt"></i></button>
         `;
-        document.querySelector('.finishText').style.display = 'block';
+        document.querySelector('#finishText').style.display = 'block';
         document.querySelector('.everything').style.display = 'none';
     } else {
         console.log('Respuestas correctas: ' + rightAnswers + '/' + total);
@@ -183,10 +184,10 @@ const start = () => {
     document.querySelector('.startBtn')  .style.display = 'none';
     document.querySelector('.title')     .style.display = 'none';
     document.querySelector('.everything').style.display = 'block';
-    document.querySelector('.finishText').style.display = 'none';
+    document.querySelector('#finishText').style.display = 'none';
 };
 
 const resetBtn = document.getElementById("resetBtn");
 resetBtn.addEventListener("click", () => {
     window.location.reload();
-})
+});

@@ -89,7 +89,7 @@ footer a {
     color: white;
     border-radius: 0 0 12px 12px;
 }
-.finishText {
+#finishText {
     width: 100%;
     color: #070707;
     font-size: large;
