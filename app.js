@@ -145,23 +145,27 @@ const evaluateAnswer = (answer, obj) => {
     }
 
     const totalAnswers = parseInt(rightAnswers + wrongAnswers);
-    if(totalAnswers == 2) {
+    if(totalAnswers === 2) {
+        const finishText = document.createElement('div');
+        finishText.setAttribute('id', 'finishText');
+        document.body.appendChild(finishText);
         document.querySelector('#finishText').innerHTML= `
             <p class="finish">Fin!</p><br>
             <p>Juega de nuevo o comparte tus resultados con tus compañeros.</p><br>
-            <p>Respuestas correctas: ${ rightAnswers }/${ totalAnswers }</p>
-            <button id="startBtn" class="startBtn" onClick="start()"><i class="fas fa-undo-alt"></i></button>
+            <p>Respuestas correctas: ${ rightAnswers } de ${ totalAnswers }</p>
+            <button id="restartBtn" onClick="restart()">
+                <i class="fas fa-undo-alt"></i>
+            </button>
         `;
         document.querySelector('#finishText').style.display = 'block';
         document.querySelector('.everything').style.display = 'none';
     } else {
-        console.log('Respuestas correctas: ' + rightAnswers + '/' + total);
+        console.log('Respuestas correctas: ' + rightAnswers + '/' + total + '. Favor reiniciar la página de manera manual. Disculpe las molestias');
     }
 };
 
 // Color Random:
-const nextBtn = document.getElementById("nextBtn");
-const body    = document.querySelector ("body");
+const body = document.querySelector ("body");
 const generateRandomColor = () => {
     let r = Math.floor(Math.random()*256);
     let g = Math.floor(Math.random()*256);
@@ -181,7 +185,7 @@ const next = () => {
 
 const start = () => {
     printHtmlQuestion(0);
-    document.querySelector('.startBtn')  .style.display = 'none';
+    document.querySelector('#startBtn')  .style.display = 'none';
     document.querySelector('.title')     .style.display = 'none';
     document.querySelector('.everything').style.display = 'block';
     document.querySelector('#finishText').style.display = 'none';
@@ -189,5 +193,18 @@ const start = () => {
 
 const resetBtn = document.getElementById("resetBtn");
 resetBtn.addEventListener("click", () => {
-    window.location.reload();
+    // window.location.reload(true);
+    rightAnswers = 0;
+    wrongAnswers = 0;
+    localStorage.clear();
+    window.location.href = window.location.origin + window.location.pathname;
 });
+
+const restart = () => {
+    localStorage.clear();
+    window.location.href = window.location.origin + window.location.pathname;
+    document.querySelector('.rightCounter').innerHTML = 0;
+    document.querySelector('.wrongCounter').innerHTML = 0;
+    document.querySelector('#finishText').remove();
+    document.querySelector('.everything').style.display = 'block';
+};

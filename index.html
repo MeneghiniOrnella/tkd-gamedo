@@ -14,19 +14,19 @@
 </head>
 <body>
     <div class="home">
-		<h1 class="title">Juego de preguntas</h1>
-	    <button id="startBtn" class="startBtn" onClick="start()">Iniciar</button>
+		<h1 class="title">Juego de preguntas sobre TAEKWON-DO</h1>
+	    <button id="startBtn" onClick="start()">Iniciar</button>
     </div>
-    
+
     <div class="everything">
         <div class="question"></div>
         <div class="btns">
-            <button id="nextBtn" class="nextBtn" onClick="next()">Siguiente</button>
-            <button id="resetBtn">
+            <button id="nextBtn" onClick="next()">Siguiente</button>
+            <button id="resetBtn" onClick="reset()">
                 <i class="fa-solid fa-rotate-right"></i>
             </button>
         </div>
-        
+
         <div class="info">
             <!-- <p>
                 <i class="fas fa-stopwatch"></i>
@@ -40,15 +40,12 @@
                 <i class="fas fa-times-circle"></i>
                 <span class="wrongCounter">0</span>
             </p>
-        </div>
+        </div><br>
+
+        <footer>
+            <a href="https://meneghiniornella.netlify.app/" target="_blank">Página creada por Saboon Ornella Meneghini 1º dan &copy2023</a>
+        </footer>
     </div>
-
-    <div id="finishText"></div>
-
-    <br>
-    <footer>
-        <a href="https://meneghiniornella.netlify.app/" target="_blank">Página creada por Saboon Ornella Meneghini 1º dan &copy2023</a>
-    </footer>
 
     <script src="https://kit.fontawesome.com/093473ac19.js" crossorigin="anonymous"></script>
     <script src="app.js"></script>
