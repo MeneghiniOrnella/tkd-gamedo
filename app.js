@@ -82,7 +82,7 @@ const cuestionary = [
         {
             'question': 'Cómo se dice profesor en coreano?',
             'answers': ['sabonim','sabom','bu sabonim','tae']
-        }
+        },
     // ], [
         {
             'question': 'Qué significa chumok?',
@@ -168,10 +168,10 @@ const printHtmlQuestion = (i) => {
             document.querySelector('.time').innerHTML = time;
         }
     },5000); */
-    
-    const htmlAnswersArray = a.map(currentA => `
+
+    const htmlAnswersArray = a.map(currentAnswer => `
         <p class="answersBtn">
-            <a class="answer" onClick="evaluateAnswer('${ currentA }',this)">${ currentA }</a>
+            <a class="answer" onClick="evaluateAnswer('${ currentAnswer }',this)">${ currentAnswer }</a>
         </p>
     `);
     const htmlAnswers = htmlAnswersArray.join('');
@@ -197,7 +197,7 @@ const evaluateAnswer = (answer, obj) => {
     }
 
     const totalAnswers = parseInt(rightAnswers + wrongAnswers);
-    if(totalAnswers === 2) {
+    if(totalAnswers === 3) {
         const finishText = document.createElement('div');
         finishText.setAttribute('id', 'finishText');
         document.body.appendChild(finishText);
@@ -217,7 +217,7 @@ const evaluateAnswer = (answer, obj) => {
 };
 
 // Color Random:
-const body = document.querySelector ("body");
+const body = document.querySelector("body");
 const generateRandomColor = () => {
     let r = Math.floor(Math.random()*256);
     let g = Math.floor(Math.random()*256);
@@ -231,32 +231,37 @@ const setBackground = () => {
 };
 nextBtn.addEventListener("click", setBackground);
 
+// Start cuestionary, reload cuestionary, next question:
 const next = () => {
     printHtmlQuestion(currentQuestionIndex);
 };
-
 const start = () => {
     printHtmlQuestion(0);
     document.querySelector('#startBtn')  .style.display = 'none';
     document.querySelector('.title')     .style.display = 'none';
     document.querySelector('.everything').style.display = 'block';
-    document.querySelector('#finishText').style.display = 'none';
+    // document.querySelector('#finishText').style.display = 'none';
 };
-
-const resetBtn = document.getElementById("resetBtn");
-resetBtn.addEventListener("click", () => {
-    // window.location.reload(true);
+let reset = () => {
     rightAnswers = 0;
     wrongAnswers = 0;
     localStorage.clear();
     window.location.href = window.location.origin + window.location.pathname;
-});
-
-const restart = () => {
+};
+/*     const resetBtn = document.getElementById("resetBtn");
+resetBtn.addEventListener("click", () => {
+rightAnswers = 0;
+    wrongAnswers = 0;
     localStorage.clear();
-    window.location.href = window.location.origin + window.location.pathname;
+    window.location.href = windowLocation;
+    reload();
+}); */
+const restart = () => {
+/*     localStorage.clear();
+    window.location.href = windowLocation;
     document.querySelector('.rightCounter').innerHTML = 0;
     document.querySelector('.wrongCounter').innerHTML = 0;
     document.querySelector('#finishText').remove();
-    document.querySelector('.everything').style.display = 'block';
+    document.querySelector('.everything').style.display = 'block'; */
+    reset();
 };
