@@ -11,8 +11,8 @@ const cuestionary = [
     // [
         {
             'question': 'Dónde se creó el taekwondo?',
-            // 'img': './media/tkd.png',
-            // 'audio': './media/tkd.mp3',
+            /* 'img': './media/tkd.png',
+            'audio': './media/tkd.mp3', */
             'answers': ['Corea','China','Japón','Argentina']
         },
         {
@@ -150,12 +150,12 @@ const cuestionary = [
 
 const printHtmlQuestion = (i) => {
     currentQuestionIndex++;
-    const q = cuestionary[i];
-    let   a = q.answers;
-    rightAnswer = a[0];
+    const quiz = cuestionary[i];
+    let   ans = quiz.answers;
+    rightAnswer = ans[0];
 
     // Metodo random:
-    a = a.sort((a, b) => Math.floor(Math.random() * 3) - 1);
+    ans = ans.sort(() => Math.floor(Math.random() * 3) - 1);
 
     // Tiempo limite:
 /*     timeInterval = setInterval(() => {
@@ -169,7 +169,7 @@ const printHtmlQuestion = (i) => {
         }
     },5000); */
 
-    const htmlAnswersArray = a.map(currentAnswer => `
+    const htmlAnswersArray = ans.map(currentAnswer => `
         <p class="answersBtn">
             <a class="answer" onClick="evaluateAnswer('${ currentAnswer }',this)">${ currentAnswer }</a>
         </p>
@@ -177,7 +177,7 @@ const printHtmlQuestion = (i) => {
     const htmlAnswers = htmlAnswersArray.join('');
 
         let htmlQuestionCode = `
-            <p class="questionText">${ q.question }</p>
+            <p class="questionText">${ quiz.question }</p>
             <div>${ htmlAnswers }</div>
         `;
 
@@ -197,7 +197,7 @@ const evaluateAnswer = (answer, obj) => {
     }
 
     const totalAnswers = parseInt(rightAnswers + wrongAnswers);
-    if(totalAnswers === 3) {
+    if(totalAnswers === 10) {
         const finishText = document.createElement('div');
         finishText.setAttribute('id', 'finishText');
         document.body.appendChild(finishText);
