@@ -71,6 +71,18 @@ const cuestionary = [
         'answers': ['Sagiumnim Héctor Hernandez VIII dan','Sabonim Claudio Defelice VI dan','Sabonim Daniel Reartes IV dan','Sabonim Federico Hernandez VI dan']
     },
     {
+        'question': 'Cuántos competidores hay en un cuadrilatero?',
+        'answers': ['2','1','3','5']
+    },
+    {
+        'question': 'Cúal es la distribución del peso de la posición en L?',
+        'answers': ['70%-30%','90%-10%','50%-50%','80%-20%']
+    },
+    {
+        'question': 'Cómo se dice profesor en coreano?',
+        'answers': ['sabonim','sabom','bu sabonim','tae']
+    },
+    {
         'question': 'Qué significa chumok?',
         'answers': ['Golpe de puño','Nudillo','Mano','Puño']
     },
@@ -85,22 +97,6 @@ const cuestionary = [
     {
         'question': 'Cúal no es una prenda del dobook?',
         'answers': ['Remera','Chaqueta','Cinturón','Pantalón']
-    },
-    {
-        'question': 'Cuántos competidores hay en un cuadrilatero?',
-        'answers': ['2','1','3','5']
-    },
-    {
-        'question': 'Cúal es la distribución del peso de la posición en L?',
-        'answers': ['70%-30%','90%-10%','50%-50%','80%-20%']
-    },
-    {
-        'question': 'Cómo se dice rodilla en coreano?',
-        'answers': ['morup','chagui','palkup','tae']
-    },
-    {
-        'question': 'Cómo se dice profesor en coreano?',
-        'answers': ['sabonim','sabom','bu sabonim','tae']
     },
     {
         'question': 'Qué significa maki?',
@@ -133,8 +129,21 @@ const cuestionary = [
     {
         'question': 'Cómo se dice patada en coreano?',
         'answers': ['chagui','sogui','chirigui','tae']
+    },
+    {
+        'question': 'Cómo se dice rodilla en coreano?',
+        'answers': ['morup','chagui','palkup','tae']
     }
-]
+];
+
+// const selectLevel = (level) => {
+//   if (level === "basic") {
+//     cuestionary = [...cuestionary[0]];
+//   } else if (level === "advanced") {
+//     cuestionary = [...cuestionary[1]];
+//   }
+// }
+// selectLevel("basic");
 
 const printHtmlQuestion = (i) => {
     currentQuestionIndex++;
@@ -146,16 +155,16 @@ const printHtmlQuestion = (i) => {
     a = a.sort((a, b) => Math.floor(Math.random() * 3) - 1);
 
     // Tiempo limite:
-    // timeInterval = setInterval(() => {
-    //     time--;
-    //     if(time === 0) {
-    //         clearInterval(timeInterval);
-    //         next();
-    //         time = 10;
-    //     } else {
-    //         document.querySelector('.time').innerHTML = time;
-    //     }
-    // },5000);
+/*     timeInterval = setInterval(() => {
+        time--;
+        if(time === 0) {
+            clearInterval(timeInterval);
+            next();
+            time = 10;
+        } else {
+            document.querySelector('.time').innerHTML = time;
+        }
+    },5000); */
     
     const htmlAnswersArray = a.map(currentA => `
         <p class="answersBtn">
