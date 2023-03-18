@@ -185,7 +185,7 @@ const printHtmlQuestion = (i) => {
 };
 
 const evaluateAnswer = (answer, obj) => {
-    document.querySelectorAll('.answer').forEach(a => a.classList.remove('right', 'wrong'));
+    document.querySelectorAll('.answer').forEach(answer1 => answer1.classList.remove('right', 'wrong'));
     if (answer == rightAnswer) {
         obj.parentNode.classList.add('right');
         rightAnswers++;
@@ -205,7 +205,7 @@ const evaluateAnswer = (answer, obj) => {
             <p class="finish">Fin!</p><br>
             <p>Juega de nuevo o comparte tus resultados con tus compañeros.</p><br>
             <p>Respuestas correctas: ${ rightAnswers } de ${ totalAnswers }</p>
-            <button id="restartBtn" onClick="restart()">
+            <button id="resetBtn" onClick="reset()">
                 <i class="fas fa-undo-alt"></i>
             </button>
         `;
@@ -247,21 +247,4 @@ let reset = () => {
     wrongAnswers = 0;
     localStorage.clear();
     window.location.href = window.location.origin + window.location.pathname;
-};
-/*     const resetBtn = document.getElementById("resetBtn");
-resetBtn.addEventListener("click", () => {
-rightAnswers = 0;
-    wrongAnswers = 0;
-    localStorage.clear();
-    window.location.href = windowLocation;
-    reload();
-}); */
-const restart = () => {
-/*     localStorage.clear();
-    window.location.href = windowLocation;
-    document.querySelector('.rightCounter').innerHTML = 0;
-    document.querySelector('.wrongCounter').innerHTML = 0;
-    document.querySelector('#finishText').remove();
-    document.querySelector('.everything').style.display = 'block'; */
-    reset();
 };
