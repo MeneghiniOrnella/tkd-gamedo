@@ -3,10 +3,6 @@ let currentQuestionIndex = 0;
 let rightAnswers = 0;
 let wrongAnswers = 0;
 
-// Tiempo limite:
-let timeInterval;
-let time = 10;
-
 const cuestionary = [
     // [
         {
@@ -139,47 +135,47 @@ const cuestionary = [
     // ]
 ];
 
-// const selectLevel = (level) => {
-//   if (level === "basic") {
-//     cuestionary = [...cuestionary[0]];
-//   } else if (level === "advanced") {
-//     cuestionary = [...cuestionary[1]];
-//   }
-// }
-// selectLevel("basic");
+/* const selectLevel = (level) => {
+  if (level === "basic") {
+    cuestionary = [...cuestionary[0]];
+  } else if (level === "advanced") {
+    cuestionary = [...cuestionary[1]];
+  }
+}
+selectLevel("basic"); */
 
 const printHtmlQuestion = (i) => {
     currentQuestionIndex++;
-    const quiz = cuestionary[i];
-    let   ans = quiz.answers;
+    const quiz  = cuestionary[i];
+    let   ans   = quiz.answers;
     rightAnswer = ans[0];
 
     // Metodo random:
     ans = ans.sort(() => Math.floor(Math.random() * 3) - 1);
 
     // Tiempo limite:
-/*     timeInterval = setInterval(() => {
-        time--;
+    let time = 10;
+    let timeInterval = setInterval(() => {
         if(time === 0) {
             clearInterval(timeInterval);
-            next();
             time = 10;
+            next();
         } else {
-            document.querySelector('.time').innerHTML = time;
+            document.querySelector('.time').innerHTML = time--;
         }
-    },5000); */
+    }, 2000);
 
     const htmlAnswersArray = ans.map(currentAnswer => `
         <p class="answersBtn">
-            <a class="answer" onClick="evaluateAnswer('${ currentAnswer }',this)">${ currentAnswer }</a>
+            <a class="answer" onClick="evaluateAnswer('${ currentAnswer }', this)">${ currentAnswer }</a>
         </p>
     `);
     const htmlAnswers = htmlAnswersArray.join('');
 
-        let htmlQuestionCode = `
-            <p class="questionText">${ quiz.question }</p>
-            <div>${ htmlAnswers }</div>
-        `;
+    let htmlQuestionCode = `
+        <p class="questionText">${ quiz.question }</p>
+        <div>${ htmlAnswers }</div>
+    `;
 
     document.querySelector('.question').innerHTML = htmlQuestionCode;
 };
@@ -195,7 +191,6 @@ const evaluateAnswer = (answer, obj) => {
         wrongAnswers++;
         document.querySelector(".wrongCounter").innerHTML = wrongAnswers;
     }
-
     const totalAnswers = parseInt(rightAnswers + wrongAnswers);
     if(totalAnswers === 10) {
         const finishText = document.createElement('div');
