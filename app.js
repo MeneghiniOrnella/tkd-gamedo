@@ -1,9 +1,10 @@
+let cuestionary;
+let numberOfQuestions;
 let rightAnswer;
 let currentQuestionIndex = 0;
 let rightAnswers = 0;
 let wrongAnswers = 0;
 let timeLimit    = 10;
-let numberOfQuestions = 10;
 
 const easyCuestionary = [
     {
@@ -136,8 +137,6 @@ const hardCuestionary = [
     }
 ];
 
-let cuestionary = easyCuestionary;
-
 document.querySelector('#easyBtn').addEventListener('click', () => {
     cuestionary = easyCuestionary;
     numberOfQuestions = 10;
@@ -150,13 +149,13 @@ document.querySelector('#hardBtn').addEventListener('click', () => {
 const printHtmlQuestion = (i) => {
     currentQuestionIndex++;
     const quiz  = cuestionary[i];
-    let   ans   = quiz.answers;
+    let ans     = quiz.answers;
     rightAnswer = ans[0];
 
-    // Metodo random:
-    ans = ans.sort(() => Math.floor(Math.random() * 3) - 1);
+    //* Metodo random:
+    ans  = ans .sort(() => Math.floor(Math.random() * 3) - 1);
 
-    // Tiempo limite:
+    //* Tiempo limite:
     let time = timeLimit;
     let timeInterval = setInterval(() => {
         if(time === 0) {
@@ -195,7 +194,7 @@ const evaluateAnswer = (answer, obj) => {
         document.querySelector(".wrongCounter").innerHTML = wrongAnswers;
     }
     const totalAnswers = parseInt(rightAnswers + wrongAnswers);
-    if(totalAnswers === 10) {
+    if(totalAnswers === numberOfQuestions) {
         const finishText = document.createElement('div');
         finishText.setAttribute('id', 'finishText');
         document.body.appendChild(finishText);
@@ -214,7 +213,7 @@ const evaluateAnswer = (answer, obj) => {
     }
 };
 
-// Color Random:
+//* Color Random:
 const body = document.querySelector("body");
 const generateRandomColor = () => {
     let r = Math.floor(Math.random()*256);
@@ -229,7 +228,7 @@ const setBackground = () => {
 };
 nextBtn.addEventListener("click", setBackground);
 
-// Start cuestionary, reload cuestionary, next question:
+//* Start cuestionary, reload cuestionary, next question:
 const next = () => {
     printHtmlQuestion(currentQuestionIndex);
 };
@@ -241,24 +240,6 @@ const start = () => {
     document.querySelector('.title')     .style.display = 'none';
     document.querySelector('.everything').style.display = 'block';
     document.querySelector('#finishText').style.display = 'none';
-};
-const easyStart = () => {
-    printHtmlQuestion(0);
-    document.querySelector('#easyBtn')   .style.display = 'none';
-    document.querySelector('#hardBtn')   .style.display = 'none';
-    document.querySelector('#startBtn')  .style.display = 'none';
-    document.querySelector('.title')     .style.display = 'none';
-    document.querySelector('.everything').style.display = 'block';
-    // document.querySelector('#finishText').style.display = 'none';
-};
-const hardStart = () => {
-    printHtmlQuestion(0);
-    document.querySelector('#easyBtn')   .style.display = 'none';
-    document.querySelector('#hardBtn')   .style.display = 'none';
-    document.querySelector('#startBtn')  .style.display = 'none';
-    document.querySelector('.title')     .style.display = 'none';
-    document.querySelector('.everything').style.display = 'block';
-    // document.querySelector('#finishText').style.display = 'none';
 };
 let reset = () => {
     rightAnswers = 0;
