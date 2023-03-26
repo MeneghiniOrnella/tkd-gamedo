@@ -1,10 +1,8 @@
-let cuestionary;
-let numberOfQuestions;
-let rightAnswer;
+let cuestionary, rightAnswer, timeLimit;
+let numberOfQuestions = 10;
 let currentQuestionIndex = 0;
 let rightAnswers = 0;
 let wrongAnswers = 0;
-let timeLimit    = 10;
 
 const easyCuestionary = [
     {
@@ -140,16 +138,18 @@ const hardCuestionary = [
 document.querySelector('#easyBtn').addEventListener('click', () => {
     cuestionary = easyCuestionary;
     numberOfQuestions = 10;
+    timeLimit = 3000;
 });
 document.querySelector('#hardBtn').addEventListener('click', () => {
     cuestionary = hardCuestionary;
     numberOfQuestions = 15;
+    timeLimit = 2000;
 });
 
 const printHtmlQuestion = (i) => {
     currentQuestionIndex++;
     const quiz  = cuestionary[i];
-    let ans     = quiz.answers;
+    let   ans   = quiz.answers;
     rightAnswer = ans[0];
 
     //* Metodo random:
@@ -165,7 +165,7 @@ const printHtmlQuestion = (i) => {
         } else {
             document.querySelector('.time').innerHTML = time--;
         }
-    }, 2000);
+    }, timeLimit);
 
     const htmlAnswersArray = ans.map(currentAnswer => `
         <p class="answersBtn">
@@ -183,7 +183,8 @@ const printHtmlQuestion = (i) => {
 };
 
 const evaluateAnswer = (answer, obj) => {
-    document.querySelectorAll('.answer').forEach(answer1 => answer1.classList.remove('right', 'wrong'));
+    document.querySelectorAll('.answer')
+            .forEach(selected => selected.classList.remove('right', 'wrong'));
     if (answer == rightAnswer) {
         obj.parentNode.classList.add('right');
         rightAnswers++;
@@ -199,7 +200,7 @@ const evaluateAnswer = (answer, obj) => {
         finishText.setAttribute('id', 'finishText');
         document.body.appendChild(finishText);
         document.querySelector('#finishText').innerHTML= `
-            <p class="finish">Fin!</p><br>
+            <h2 class="finish">Fin!</h2><br>
             <p>Juega de nuevo o comparte tus resultados con tus compañeros.</p><br>
             <p>Respuestas correctas: ${ rightAnswers } de ${ totalAnswers }</p>
             <button id="resetBtn" onClick="reset()">
@@ -208,42 +209,43 @@ const evaluateAnswer = (answer, obj) => {
         `;
         document.querySelector('#finishText').style.display = 'block';
         document.querySelector('.everything').style.display = 'none';
-    } else {
-        console.log('Respuestas correctas: ' + rightAnswers + '/' + total + '. Favor reiniciar la página de manera manual. Disculpe las molestias');
-    }
+    };
 };
 
-//* Color Random:
+//* Background:
 const body = document.querySelector("body");
 const generateRandomColor = () => {
-    let r = Math.floor(Math.random()*256);
-    let g = Math.floor(Math.random()*256);
-    let b = Math.floor(Math.random()*256);
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
     return `rgb(${ r }, ${ g }, ${ b })`;
 };
 const setBackground = () => {
     const newColor = generateRandomColor();
-    console.table(newColor);
+    console.log('Color de fondo: ' + newColor);
     body.style.backgroundColor = newColor;
 };
-nextBtn.addEventListener("click", setBackground);
+// nextBtn.addEventListener("click", setBackground);
 
 //* Start cuestionary, reload cuestionary, next question:
 const next = () => {
     printHtmlQuestion(currentQuestionIndex);
+    setBackground();
 };
 const start = () => {
-    printHtmlQuestion(0);
-    document.querySelector('#easyBtn')  .style.display  = 'none';
-    document.querySelector('#hardBtn')  .style.display  = 'none';
-    document.querySelector('#startBtn')  .style.display = 'none';
+    printHtmlQuestion(currentQuestionIndex);
+    setBackground();
+    document.querySelector('#easyBtn')   .style.display = 'none';
+    document.querySelector('#hardBtn')   .style.display = 'none';
+    // document.querySelector('#startBtn')  .style.display = 'none';
     document.querySelector('.title')     .style.display = 'none';
     document.querySelector('.everything').style.display = 'block';
-    document.querySelector('#finishText').style.display = 'none';
+    // document.querySelector('#finishText').style.display = 'none';
 };
 let reset = () => {
     rightAnswers = 0;
     wrongAnswers = 0;
     localStorage.clear();
-    window.location.href = window.location.origin + window.location.pathname;
+    let windowLoc  = window.location;
+    windowLoc.href = windowLoc.origin + windowLoc.pathname;
 };
