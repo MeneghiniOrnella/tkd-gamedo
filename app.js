@@ -1,9 +1,4 @@
-let cuestionary, rightAnswer, timeLimit;
-let numberOfQuestions = 10;
-let currentQuestionIndex = 0;
-let rightAnswers = 0;
-let wrongAnswers = 0;
-
+// import { easyCuestionary, hardCuestionary } from "./cuestionary.js";
 const easyCuestionary = [
     {
         'question': 'Dónde se creó el taekwondo?',
@@ -22,10 +17,6 @@ const easyCuestionary = [
     {
         'question': 'Qué significa Dung San?',
         'answers': ['escalar montañas','montañas','caminar montañas','saltar montañas']
-    },
-    {
-        'question': 'Cuándo se creó A.CE.T.?',
-        'answers': ['2002','1960','2011','1999']
     },
     {
         'question': 'Cuál es la traducción de 태권도 o 跆拳道?',
@@ -52,20 +43,8 @@ const easyCuestionary = [
         'answers': ['24','10','9','15']
     },
     {
-        'question': 'Quién es el presidente de la Escuela Dung San?',
-        'answers': ['Sabonim Daniel Reartes IV dan','Sabonim Claudio Defelice VI dan','Sagiumnim Héctor Hernandez VIII dan','Sabonim Federico Hernandez VI dan']
-    },
-    {
         'question': 'Cúando se trajo el taekwondo a Argentina?',
         'answers': ['1967','1955','1965','1967']
-    },
-    {
-        'question': 'A qué asociación de taekwondo perteneces?',
-        'answers': ['A.CE.T.','Yom Chi','Dung San','U.E.N.A.T.']
-    },
-    {
-        'question': 'Quién es el presidente de A.CE.T.?',
-        'answers': ['Sagiumnim Héctor Hernandez VIII dan','Sabonim Claudio Defelice VI dan','Sabonim Daniel Reartes IV dan','Sabonim Federico Hernandez VI dan']
     },
     {
         'question': 'Cuántos competidores hay en un cuadrilatero?',
@@ -134,19 +113,20 @@ const hardCuestionary = [
         'answers': ['morup','chagui','palkup','tae']
     }
 ];
+let cuestionary = [], rightAnswer, timeLimit numberOfQuestions = 10, currentQuestionIndex = 0, rightAnswers = 0, wrongAnswers = 0;
 
 document.querySelector('#easyBtn').addEventListener('click', () => {
     cuestionary = easyCuestionary;
     numberOfQuestions = 10;
-    timeLimit = 3000;
+    timeLimit = 30;
 });
 document.querySelector('#hardBtn').addEventListener('click', () => {
     cuestionary = hardCuestionary;
     numberOfQuestions = 15;
-    timeLimit = 2000;
+    timeLimit = 20;
 });
 
-const printHtmlQuestion = (i) => {
+const printQuestion = (i) => {
     currentQuestionIndex++;
     const quiz  = cuestionary[i];
     let   ans   = quiz.answers;
@@ -155,7 +135,7 @@ const printHtmlQuestion = (i) => {
     //* Metodo random:
     ans  = ans .sort(() => Math.floor(Math.random() * 3) - 1);
 
-    //* Tiempo limite:
+    /* //* Tiempo limite:
     let time = timeLimit;
     let timeInterval = setInterval(() => {
         if(time === 0) {
@@ -165,7 +145,7 @@ const printHtmlQuestion = (i) => {
         } else {
             document.querySelector('.time').innerHTML = time--;
         }
-    }, timeLimit);
+    }, timeLimit);*/
 
     const htmlAnswersArray = ans.map(currentAnswer => `
         <p class="answersBtn">
@@ -213,34 +193,31 @@ const evaluateAnswer = (answer, obj) => {
 };
 
 //* Background:
-const body = document.querySelector("body");
+// const body = document.querySelector("body");
 const generateRandomColor = () => {
     let r = Math.floor(Math.random() * 256);
     let g = Math.floor(Math.random() * 256);
     let b = Math.floor(Math.random() * 256);
     return `rgb(${ r }, ${ g }, ${ b })`;
+    // return `radial-gradient(circle, rgba(${ r }, ${ g }, ${ b }, 0.5) 0%, rgba(${ r }, ${ g }, ${ b }, 1) 100%`;
 };
 const setBackground = () => {
     const newColor = generateRandomColor();
     console.log('Color de fondo: ' + newColor);
-    body.style.backgroundColor = newColor;
+    // body.style.backgroundColor = newColor;
+    document.querySelector("body").style.background = newColor;
 };
-// nextBtn.addEventListener("click", setBackground);
 
 //* Start cuestionary, reload cuestionary, next question:
 const next = () => {
-    printHtmlQuestion(currentQuestionIndex);
+    printQuestion(currentQuestionIndex++);
     setBackground();
 };
 const start = () => {
-    printHtmlQuestion(currentQuestionIndex);
+    printQuestion(currentQuestionIndex);
     setBackground();
-    document.querySelector('#easyBtn')   .style.display = 'none';
-    document.querySelector('#hardBtn')   .style.display = 'none';
-    // document.querySelector('#startBtn')  .style.display = 'none';
-    document.querySelector('.title')     .style.display = 'none';
+    document.querySelector('.home')      .style.display = 'none';
     document.querySelector('.everything').style.display = 'block';
-    // document.querySelector('#finishText').style.display = 'none';
 };
 let reset = () => {
     rightAnswers = 0;
