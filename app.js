@@ -113,7 +113,7 @@ const hardCuestionary = [
         'answers': ['morup','chagui','palkup','tae']
     }
 ];
-let cuestionary = [], rightAnswer, timeLimit numberOfQuestions = 10, currentQuestionIndex = 0, rightAnswers = 0, wrongAnswers = 0;
+let cuestionary = [], rightAnswer, timeLimit, numberOfQuestions = 10, currentQuestionIndex = 0, rightAnswers = 0, wrongAnswers = 0;
 
 document.querySelector('#easyBtn').addEventListener('click', () => {
     cuestionary = easyCuestionary;
