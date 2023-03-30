@@ -1,4 +1,5 @@
 // import { easyCuestionary, hardCuestionary } from "./cuestionary.js";
+let cuestionary = [], rightAnswer, timeLimit, numberOfQuestions = 10, currentQuestionIndex = 0, rightAnswers = 0, wrongAnswers = 0, answers;
 const easyCuestionary = [
     {
         'question': 'Dónde se creó el taekwondo?',
@@ -113,7 +114,6 @@ const hardCuestionary = [
         'answers': ['morup','chagui','palkup','tae']
     }
 ];
-let cuestionary = [], rightAnswer, timeLimit, numberOfQuestions = 10, currentQuestionIndex = 0, rightAnswers = 0, wrongAnswers = 0;
 
 document.querySelector('#easyBtn').addEventListener('click', () => {
     cuestionary = easyCuestionary;
@@ -149,13 +149,16 @@ const printQuestion = (i) => {
 
     const htmlAnswersArray = ans.map(currentAnswer => `
         <p class="answersBtn">
-            <a class="answer" onClick="evaluateAnswer('${ currentAnswer }', this)">${ currentAnswer }</a>
+            <a class="answer" 
+                onClick="evaluateAnswer('${ currentAnswer }', this)">
+                ${ currentAnswer }</a>
         </p>
     `);
     const htmlAnswers = htmlAnswersArray.join('');
 
     let htmlQuestionCode = `
-        <p class="questionText">${ quiz.question }</p>
+        <h2>TKD Game-Do</h2>
+        <p class="questionText">${ cuestionary[i].question }</p>
         <div class="htmlAnswers">${ htmlAnswers }</div>
     `;
 
@@ -210,11 +213,11 @@ const setBackground = () => {
 
 //* Start cuestionary, reload cuestionary, next question:
 const next = () => {
-    printQuestion(currentQuestionIndex++);
+    printQuestion(currentQuestionIndex);
     setBackground();
 };
 const start = () => {
-    printQuestion(currentQuestionIndex);
+    printQuestion(currentQuestionIndex++);
     setBackground();
     document.querySelector('.home')      .style.display = 'none';
     document.querySelector('.everything').style.display = 'block';

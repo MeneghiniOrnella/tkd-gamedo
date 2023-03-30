@@ -15,6 +15,10 @@ body {
 h1 {
     font-size: 4.5em;
 }
+h2 {
+    font-size: 3.5em;
+    background-color: rgba(178, 178, 255, 0.224);
+}
 
 img {
     background: #fff;
@@ -26,8 +30,13 @@ p {
     width: 100%;
     font-size: 2.2em;
     border: none;
-    border-radius: 0.3rem;
+    /*border-radius: 0.3rem;
+    */border-radius: 10px;
     width: 100%;
+    -webkit-border-radius:;
+    -moz-border-radius:;
+    -ms-border-radius:;
+    -o-border-radius:;
 }
 
 button {
@@ -59,6 +68,8 @@ a {
     width: 100%;
 }
 
+
+
 footer a {
     font-size: 1.5rem;
     margin-top: 1.5em;
@@ -75,6 +86,7 @@ footer a {
     text-transform: uppercase;
     background: rgba(255, 255, 255, 0.842);
     width: 100%;
+    box-shadow: 5px 5px 0 #ffffd0;
 }
 .answersBtn {
     font-size: large;
@@ -82,6 +94,12 @@ footer a {
     color: #fff;
     width: 100%;
 }
+.answer:hover, .answer:focus {
+    font-weight: 1000;
+    color: #000;
+    background: #fff;
+}
+
 .info {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
