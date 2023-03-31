@@ -65,6 +65,10 @@ export const hardCuestionary = [
         'answers': ['Golpe de puño','Nudillo','Mano','Puño']
     },
     {
+        'question': 'Qué tips de ejercicios de entrada en calor existe?',
+        'answers': ['Aerobicos y Anabolicos','Dinamicos y Estaticas']
+    },
+    {
         'question': 'Qué significa dojang?',
         'answers': ['Habitación','Lugar de práctica','Escuela','Escudo']
     },
