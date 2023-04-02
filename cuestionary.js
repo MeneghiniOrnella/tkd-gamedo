@@ -56,6 +56,18 @@ export const easyCuestionary = [
     {
         'question': 'Cómo se dice profesor en coreano?',
         'answers': ['sabonim','sabom','bu sabonim','tae']
+    },
+    {
+        'question': 'Graduación maxima en taekwondo?',
+        'answers': ['noveno dan','decimo dan','octavo dan','no hay categoria maxima']
+    },
+    {
+        'question': 'Cuántas preformas existen?',
+        'answers': ['2','4','1']
+    },
+    {
+        'question': 'Por qué no se usa el cinturon fuera del lugar de practicas?',
+        'answers': ['demostrar humildad y no hacer ostentacion de categoria','el cinturon se debe usar desde que uno sale de su hogar, hasta que regresa']
     }
 ];
 
@@ -115,5 +127,17 @@ export const hardCuestionary = [
     {
         'question': 'Cómo se dice rodilla en coreano?',
         'answers': ['morup','chagui','palkup','tae']
+    },
+    {
+        'question': 'Quienes trajeron el taekwondo a la Argentina?',
+        'answers': ['Han CHang Kim, Nam Sun Choi, Kwan Duk Chung','Choi Hong Hi, Nam Sun Choi, Kwan Duk Chung','Choi Hong Hi']
+    },
+    {
+        'question': 'Desde cuando se implementaron las puntas en los cinturones?',
+        'answers': ['1980','2002','1955','1967']
+    },
+    {
+        'question': 'Cuál fue el ultimo tul creado?',
+        'answers': ['juche en 1963','choong moo en 2003','juche en 1999','choong moo en 1963']
     }
 ];
