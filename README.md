@@ -1,9 +1,9 @@
-# tkd-gamedo
+# TKD Game-do
 ## Link
-[https://meneghiniornella.github.io/tkd-gamedo/](https://meneghiniornella.github.io/tkd-gamedo/)
+[Play TKD Game-do](https://meneghiniornella.github.io/tkd-gamedo/)
 
 ## Description
-Juego de multiple choice realizado para una escuela de Taekwon-do sobre teoría.
+Multiple choice game created for a Taekwon-do school for its 10th anniversary and then continued improvements.
 
 ## Techonologies used
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
