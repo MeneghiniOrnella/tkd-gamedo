@@ -23,15 +23,17 @@
     </div>
 
     <div class="everything">
-        <div class="question"></div>
-        <div class="btns">
-            <button id="nextBtn"  onClick="next()">Siguiente</button>
-            <button id="resetBtn" onClick="reset()">
-                <i class="fa-solid fa-rotate-right"></i>
-            </button>
-        </div>
+        <section class="quiz">
+            <div class="question"></div>
+            <div class="btns">
+                <button id="nextBtn"  onClick="next()">Siguiente</button>
+                <button id="resetBtn" onClick="reset()">
+                    <i class="fa-solid fa-rotate-right"></i>
+                </button>
+            </div>
+        </section>
 
-        <div class="info">
+        <section class="info">
             <p>
                 <i class="fas fa-stopwatch"></i>
                 <span class="time" id ="time">10</span>
@@ -44,15 +46,15 @@
                 <i class="fas fa-times-circle"></i>
                 <span class="wrongCounter">0</span>
             </p>
-        </div><br>
-
-        <footer>
-            <a href="https://meneghiniornella.netlify.app/" target="_blank">Página creada por Saboon Ornella Meneghini 1º dan &copy2023</a>
-        </footer>
+        </section><br>
     </div>
+    <footer>
+        <a href="https://meneghiniornella.netlify.app/" target="_blank">Página creada por Saboon Ornella Meneghini 1º dan &copy2023</a>
+    </footer>
 
     <script src="https://kit.fontawesome.com/093473ac19.js" crossorigin="anonymous"></script>
     <script type="module" src="cuestionary.js"></script>
+    <script type="module" src="easyCuestionary.js"></script>
     <script type="module" src="app.js"></script>
     <!-- <script src="app.js"></script> -->
 </body>
