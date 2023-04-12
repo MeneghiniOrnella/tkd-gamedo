@@ -208,7 +208,6 @@ const generateRandomColor = () => {
     let g = Math.floor(Math.random() * 256);
     let b = Math.floor(Math.random() * 256);
     return `rgb(${ r }, ${ g }, ${ b })`;
-    // return `radial-gradient(circle, rgba(${ r }, ${ g }, ${ b }, 0.5) 0%, rgba(${ r }, ${ g }, ${ b }, 1) 100%`;
 };
 const setBackground = () => {
     const newColor = generateRandomColor();
@@ -219,19 +218,31 @@ const setBackground = () => {
 
 //* Start cuestionary, reload cuestionary, next question:
 const next = () => {
-    printQuestion(currentQuestionIndex);
-    setBackground();
+    try {
+        printQuestion(currentQuestionIndex);
+        setBackground();
+    } catch(error) {
+        console.error(`Error! Favor intentar de nuevo para ir a la siguiente pregunta | ${error}`);
+    }
 };
 const start = () => {
-    printQuestion(currentQuestionIndex++);
-    setBackground();
-    document.querySelector('.home')      .style.display = 'none';
-    document.querySelector('.everything').style.display = 'block';
+    try {
+        printQuestion(currentQuestionIndex++);
+        setBackground();
+        document.querySelector('.home')      .style.display = 'none';
+        document.querySelector('.everything').style.display = 'block';
+    } catch(error) {
+        console.error(`Error! Favor intentar de nuevo para comenzar a jugar | ${error}`);
+    }
 };
 let reset = () => {
-    rightAnswers = 0;
-    wrongAnswers = 0;
-    localStorage.clear();
-    let windowLoc  = window.location;
-    windowLoc.href = windowLoc.origin + windowLoc.pathname;
+    try {
+        rightAnswers = 0;
+        wrongAnswers = 0;
+        localStorage.clear();
+        let windowLoc  = window.location;
+        windowLoc.href = windowLoc.origin + windowLoc.pathname;
+    } catch(error) {
+        console.error(`Error! Favor intentar de nuevo para reiniciar el juego | ${error}`);
+    }
 };
