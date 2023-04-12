@@ -5,6 +5,9 @@ let timeLimit;
 let rightAnswers = 0;
 let wrongAnswers = 0;
 let answers;
+let tagSubject;
+let cuestionary = [];
+
 const easyCuestionary = [
     {
         'question': 'Dónde se creó el taekwondo?',
@@ -119,7 +122,7 @@ const hardCuestionary = [
         'answers': ['morup','chagui','palkup','tae']
     }
 ];
-let cuestionary = [];
+
 
 document.querySelector('#easyBtn').addEventListener('click', () => {
     cuestionary = easyCuestionary;
@@ -216,11 +219,30 @@ const setBackground = () => {
     document.querySelector("body").style.background = newColor;
 };
 
+/* //* Tag for subject
+for (let i = 0; i < easyCuestionary.length; i++) {
+    let question = easyCuestionary[i].question;
+    if (question.includes("patada")) {
+        tagSubject = `combate`;
+    } else if(question.includes("tul")) {
+        tagSubject = `tules`;
+    }  else if(question.includes("patada")) {
+        tagSubject = `tecnicas`;
+    } else if(question.includes("escuela")) {
+        tagSubject = `institucional`;
+    } else if(question.includes("año")) {
+        tagSubject = `historia`;
+    } else {
+        tagSubject = `general`;
+    }
+} */
+
 //* Start cuestionary, reload cuestionary, next question:
 const next = () => {
     try {
         printQuestion(currentQuestionIndex);
         setBackground();
+        console.log(`Tema: #${ tagSubject }`);
     } catch(error) {
         console.error(`Error! Favor intentar de nuevo para ir a la siguiente pregunta | ${error}`);
     }
@@ -229,6 +251,7 @@ const start = () => {
     try {
         printQuestion(currentQuestionIndex++);
         setBackground();
+        console.log(`Tema: #${ tagSubject }`);
         document.querySelector('.home')      .style.display = 'none';
         document.querySelector('.everything').style.display = 'block';
     } catch(error) {
