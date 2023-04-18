@@ -123,7 +123,6 @@ const hardCuestionary = [
     }
 ];
 
-
 document.querySelector('#easyBtn').addEventListener('click', () => {
     cuestionary = easyCuestionary;
     numberOfQuestions = 10;
@@ -205,19 +204,15 @@ const evaluateAnswer = (answer, obj) => {
 };
 
 //* Background:
-// const body = document.querySelector("body");
-const generateRandomColor = () => {
+const setBackground = () => {
     let r = Math.floor(Math.random() * 256);
     let g = Math.floor(Math.random() * 256);
     let b = Math.floor(Math.random() * 256);
-    return `rgb(${ r }, ${ g }, ${ b })`;
-};
-const setBackground = () => {
-    const newColor = generateRandomColor();
-    console.log('Color de fondo: ' + newColor);
-    // body.style.backgroundColor = newColor;
-    document.querySelector("body").style.background = newColor;
-};
+
+    document.querySelector("body").style.background = `rgb(${ r }, ${ g }, ${ b })`;
+    // console.log(`rgb(${ r }, ${ g }, ${ b })`);
+}
+setBackground();
 
 /* //* Tag for subject
 for (let i = 0; i < easyCuestionary.length; i++) {
