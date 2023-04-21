@@ -166,7 +166,7 @@ const printQuestion = (i) => {
 
     let htmlQuestionCode = `
         <h2>TKD Game-Do</h2>
-        <p class="questionText">${ cuestionary[i].question }</p>
+        <h3 class="questionText">${ cuestionary[i].question }</h3>
         <div class="htmlAnswers">${ htmlAnswers }</div>
     `;
 
@@ -239,7 +239,7 @@ const next = () => {
         setBackground();
         console.log(`Tema: #${ tagSubject }`);
     } catch(error) {
-        console.error(`Error! Favor intentar de nuevo para ir a la siguiente pregunta | ${error}`);
+        console.error(`Error! Favor intentar de nuevo para ir a la siguiente pregunta | ${ error }`);
     }
 };
 const start = () => {
@@ -250,7 +250,7 @@ const start = () => {
         document.querySelector('.home')      .style.display = 'none';
         document.querySelector('.everything').style.display = 'block';
     } catch(error) {
-        console.error(`Error! Favor intentar de nuevo para comenzar a jugar | ${error}`);
+        console.error(`Error! Favor intentar de nuevo para comenzar a jugar | ${ error }`);
     }
 };
 let reset = () => {
@@ -261,6 +261,6 @@ let reset = () => {
         let windowLoc  = window.location;
         windowLoc.href = windowLoc.origin + windowLoc.pathname;
     } catch(error) {
-        console.error(`Error! Favor intentar de nuevo para reiniciar el juego | ${error}`);
+        console.error(`Error! Favor intentar de nuevo para reiniciar el juego | ${ error }`);
     }
 };
