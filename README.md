@@ -4,6 +4,9 @@
 
 ## Description
 Multiple choice game created for a Taekwon-do school for its 10th anniversary and then continued improvements.
+<!-- 
+    agregar mas preguntas, mejorar botones
+ -->
 
 ## Techonologies used
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)

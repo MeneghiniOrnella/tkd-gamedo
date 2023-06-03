@@ -98,8 +98,26 @@ footer a:hover, footer a:focus {
 }
 .answer:hover, .answer:focus {
     font-weight: 1000;
-    color: #000;
-    background: #fff;
+    color: #ecfefe;
+    /* background: #fff; */
+    animation: pulse 5s infinite;
+}
+@keyframes pulse {
+    from {
+        color: #fcfcfc;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+    } to {
+        color: #fafafa;
+        transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -o-transform: scale(1.2);
+    }
 }
 
 .info {
