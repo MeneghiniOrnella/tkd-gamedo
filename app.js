@@ -126,12 +126,12 @@ const hardCuestionary = [
 document.querySelector('#easyBtn').addEventListener('click', () => {
     cuestionary = easyCuestionary;
     numberOfQuestions = 10;
-    timeLimit = 30;
+    // timeLimit = 30;
 });
 document.querySelector('#hardBtn').addEventListener('click', () => {
     cuestionary = hardCuestionary;
     numberOfQuestions = 15;
-    timeLimit = 20;
+    // timeLimit = 20;
 });
 
 const printQuestion = (i) => {
@@ -141,7 +141,7 @@ const printQuestion = (i) => {
     rightAnswer = ans[0];
 
     //* Metodo random:
-    ans  = ans .sort(() => Math.floor(Math.random() * 3) - 1);
+    ans  = ans.sort(() => Math.floor(Math.random() * 3) - 1);
 
     /* //* Tiempo limite:
     let time = timeLimit;

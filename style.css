@@ -33,10 +33,6 @@ p {
     /*border-radius: 0.3rem;
     */border-radius: 10px;
     width: 100%;
-    -webkit-border-radius:;
-    -moz-border-radius:;
-    -ms-border-radius:;
-    -o-border-radius:;
 }
 
 button {
