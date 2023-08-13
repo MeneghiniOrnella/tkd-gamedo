@@ -127,11 +127,13 @@ document.querySelector('#easyBtn').addEventListener('click', () => {
     cuestionary = easyCuestionary;
     numberOfQuestions = 10;
     // timeLimit = 30;
+    start();
 });
 document.querySelector('#hardBtn').addEventListener('click', () => {
     cuestionary = hardCuestionary;
     numberOfQuestions = 15;
     // timeLimit = 20;
+    start();
 });
 
 const printQuestion = (i) => {
@@ -264,3 +266,5 @@ let reset = () => {
         console.error(`Error! Favor intentar de nuevo para reiniciar el juego | ${ error }`);
     }
 };
+
+window.onload = start();
