@@ -120,6 +120,18 @@ const hardCuestionary = [
     {
         'question': 'Cómo se dice rodilla en coreano?',
         'answers': ['morup','chagui','palkup','tae']
+    },
+    {
+        'question': 'En qué año nació el general Choi Hong Gi?',
+        'answers': ['1918','1750','1820','1950']
+    },
+    {
+        'question': 'En qué año falleció el general Choi Hong Gi?',
+        'answers': ['2002','2001','1967','1918']
+    },
+    {
+        'question': 'Qué no pertenece al juramento del taekwondista?',
+        'answers': ['Yo cumpliré mis objetivos','Yo crearé un mundo de paz','Yo respetaré al instructor','Yo nunca abusaré del Taekwondo-Do']
     }
 ];
 
